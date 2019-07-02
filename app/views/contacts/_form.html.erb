@@ -31,21 +31,31 @@
   <%= form.fields_for :address do |address_fields|%>
 
   <div class="field">
-    <%= form.label :street %>
+    <%= address_fields.label :street %>
     <%= address_fields.text_field :street%>    
   </div>
 
   <div class="field">
-    <%= form.label :city %>
+    <%= address_fields.label :city %>
     <%= address_fields.text_field :city%>    
   </div>
 
   <div class="field">
-    <%= form.label :state %>
-    <%= address_fields.text_field :state%>    
+    <%= address_fields.label :state %>
+    <%= address_fields.select :state, options_for_states(@contact.address.state)  %>    
   </div>
   
   <% end %>
+
+  <div id="phones">
+      <%= form.fields_for :phones do |phone_fields|%>
+        <%= render partial: "phone_fields", locals: {f: phone_fields} %>
+      <% end %>
+
+      <%= link_to_add_association('[Adicionar Telefone]', form, :phones)%>
+
+  </div>
+
 
   <div class="field">
     <%= form.label :rmk %>
@@ -54,8 +64,9 @@
 
   <div class="actions">
     <%= form.submit "Enviar", class:"button" %>
+    <%= link_to 'Back', contacts_path %>
+
   </div>
 
-  <%= link_to 'Back', contacts_path, class:"button" %>
 
 <% end %>
