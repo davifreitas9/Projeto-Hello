@@ -34,6 +34,7 @@
     margin-top: 10px;
     color: #888;
 }
+
 .basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey textarea, .basic-grey select {
 	border: 1px solid #DADADA;
 	color: #888;
@@ -50,6 +51,11 @@
 	-moz-box-shadow: inset 0px 1px 4px #ECECEC;
 	-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
 }
+
+.basic-grey input[type="text"].phone-fields{
+    width: 55%;
+}
+
 .basic-grey textarea{
 	padding: 5px 3px 3px 5px;
 }
@@ -80,4 +86,9 @@
 }
 .basic-grey .button:hover {
     background: #CF7A7A
+}
+
+a{
+    color:#888;
+    text-decoration: none;
 }
